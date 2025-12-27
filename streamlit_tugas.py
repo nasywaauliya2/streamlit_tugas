@@ -1,0 +1,46 @@
+import streamlit as st
+import pandas as pd
+
+# TITLE
+st.title("🥟 Dimsum Lezat & Halal")
+
+# HEADER
+st.header("Selamat Datang di Toko Dimsum Online")
+
+# SUBHEADER
+st.subheader("Dimsum Fresh, Murah, dan Berkualitas")
+
+# TEXT (PARAGRAF)
+st.write(
+    "Kami menyediakan berbagai macam dimsum dengan bahan pilihan dan cita rasa khas. "
+    "Cocok untuk camilan, acara keluarga, maupun dijual kembali. "
+    "Pemesanan mudah dan bisa dilakukan secara online."
+)
+
+# CAPTION
+st.caption("Semua harga dapat berubah sewaktu-waktu")
+
+# CODE (POTONGAN CODE)
+st.subheader("Contoh Potongan Kode Perhitungan Total Harga")
+st.code("""
+jumlah = 5
+harga = 3000
+total = jumlah * harga
+print(total)
+""")
+
+# DATA DISPLAY - TABEL / DATAFRAME
+st.subheader("Daftar Menu Dimsum")
+
+data = {
+    "Menu Dimsum": ["Dimsum Ayam", "Dimsum Udang", "Dimsum Keju", "Dimsum Jamur"],
+    "Harga (Rp)": [3000, 3500, 3200, 2800],
+    "Stok": [50, 40, 30, 25]
+}
+
+df = pd.DataFrame(data)
+st.dataframe(df)
+
+# DATA DISPLAY - CHART
+st.subheader("Grafik Harga Dimsum")
+st.bar_chart(df.set_index("Menu Dimsum")["Harga (Rp)"])
